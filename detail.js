@@ -54,24 +54,34 @@ if (!u){
     </div>
   `;
 
-  // Produk + Harga (2 kolom)
-  const produkList = document.getElementById("produkList");
-  const hargaList = document.getElementById("hargaList");
+// Produk (permanen) - harga masuk ke deskripsi
+const produkList = document.getElementById("produkList");
 
-  (u.produk || []).forEach((p) => {
-    const el = document.createElement("details");
-    el.className = "produk-item";
-    el.innerHTML = `
-      <summary class="bubble">${p.nama}</summary>
-      <div class="produk-drop">${p.detail || "Detail produk belum ditambahkan."}</div>
+// aman kalau produk kosong
+const products = u.produk || [];
+
+if (!products.length) {
+  produkList.innerHTML = `<p class="muted" style="margin:0">Produk unggulan belum ditambahkan.</p>`;
+} else {
+  products.forEach((p) => {
+    const card = document.createElement("div");
+    card.className = "produk-card";
+
+    const hargaText = p.harga ? `Harga: <b>${p.harga}</b>` : `Harga: <b>-</b>`;
+    const detailText = p.detail ? p.detail : "Detail produk belum ditambahkan.";
+
+    card.innerHTML = `
+      <div class="produk-head">
+        <h4 class="produk-name">${p.nama || "Produk"}</h4>
+        <span class="produk-pill">${p.kategori || "Produk unggulan"}</span>
+      </div>
+      <p class="produk-desc">${detailText}</p>
+      <p class="produk-price">${hargaText}</p>
     `;
-    produkList.appendChild(el);
 
-    const h = document.createElement("div");
-    h.className = "harga-item";
-    h.textContent = p.harga || "-";
-    hargaList.appendChild(h);
+    produkList.appendChild(card);
   });
+}
 
   // Reviews
   const reviewList = document.getElementById("reviewList");
@@ -111,3 +121,4 @@ document.addEventListener("click", e => {
 
   images[index].classList.add("active");
 });
+
