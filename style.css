@@ -1445,5 +1445,93 @@ body{
   .map-side{ height: auto; }
 }
 
+/* =========================================
+   DETAIL PAGE: HILANGIN PINK → HIJAU
+   taruh di PALING BAWAH style.css
+========================================= */
+
+/* tombol ghost di atas (Home) */
+.back-btn.ghost{
+  border: 2px solid rgba(79,119,45,.35);
+  color: var(--accent);
+}
+
+/* kalau masih ada bubble lama kepake di tempat lain, hijaukan */
+.bubble{
+  background: rgba(79,119,45,.10);
+  border: 1px solid rgba(79,119,45,.22);
+  color: var(--text);
+}
+
+/* instagram icon jangan ungu lagi */
+#ctaIg svg { fill: #31572C; }
+
+/* =========================================
+   PRODUK CARD (PERMANEN)
+========================================= */
+
+.produk-list{
+  display:flex;
+  flex-direction:column;
+  gap: 12px;
+}
+
+.produk-card{
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(19,42,19,.08);
+  border-radius: 18px;
+  padding: 14px;
+  box-shadow: 0 10px 24px rgba(19,42,19,.08);
+}
+
+.produk-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.produk-name{
+  margin:0;
+  font-size: 16px;
+  font-weight: 900;
+  color: var(--text);
+}
+
+.produk-pill{
+  display:inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #31572C;
+  background: rgba(236,243,158,.85);
+  border: 1px solid rgba(79,119,45,.18);
+  white-space: nowrap;
+}
+
+.produk-desc{
+  margin: 0 0 10px;
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.produk-price{
+  margin: 0;
+  padding-top: 10px;
+  border-top: 1px solid rgba(19,42,19,.10);
+  color: #1f2d16;
+  font-size: 14px;
+}
+
+/* mobile biar nyaman */
+@media (max-width: 768px){
+  .produk-card{ padding: 13px; }
+  .produk-name{ font-size: 15px; }
+  .produk-desc, .produk-price{ font-size: 13px; }
+}
+
 
 
