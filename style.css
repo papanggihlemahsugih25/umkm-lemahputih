@@ -1183,33 +1183,50 @@ body{
    HERO ORNAMENTS + VIDEO (FIX ANDROID)
 ========================= */
 
+/* ===== HERO (VIDEO) ===== */
 .hero{
   position: relative;
+  min-height: 100vh;
   overflow: hidden;
+  background: #0f2e1c; /* fallback kalau video gagal */
 }
 
-/* video background */
+/* video full */
 .hero-video{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  z-index:0;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
 }
 
-/* overlay gelap biar teks kebaca */
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.20));
-  z-index:1;
+/* overlay gelap */
+.hero-overlay{
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(18,46,28,.35),
+    rgba(18,46,28,.75)
+  );
+  z-index: 1;
 }
 
-/* layer content + ornamen */
-.hero-content{ position:absolute; z-index:3; }
-.orn{ z-index:2; }
+/* ornamen di atas overlay */
+.orn{ z-index: 2; }
+
+/* konten paling atas */
+.hero-content{
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -40%);
+  width: min(860px, 92%);
+  text-align: center;
+  color: #fff;
+}
 
 /* ORNAMEN base */
 .orn{
@@ -1275,4 +1292,5 @@ body{
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 }
+
 
