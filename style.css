@@ -1275,5 +1275,175 @@ body{
   to   { transform: rotate(360deg); }
 }
 
+/* =========================================
+   MOBILE POLISH PACK (Navbar + Hero + Head)
+   taruh di PALING BAWAH style.css
+========================================= */
+
+/* ---------- 1) NAVBAR MOBILE: kecil + hamburger dropdown ---------- */
+.nav-toggle{
+  display:none;              /* default desktop: sembunyi */
+  border:0;
+  background: transparent;
+  font-size: 22px;
+  line-height: 1;
+  padding: 10px 12px;
+  border-radius: 12px;
+  color: var(--text);
+  cursor:pointer;
+}
+
+@media (max-width: 768px){
+  .navbar{
+    top: 10px;
+    width: calc(100% - 20px);
+    padding: 8px 12px;
+    gap: 10px;
+  }
+
+  .brand-logo{
+    height: 42px;           /* ✅ kecilin */
+  }
+
+  /* tombol Jelajahi gede itu bikin sempit, jadi hidden di mobile */
+  .btn-call{
+    display:none;
+  }
+
+  /* tampilkan hamburger */
+  .nav-toggle{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  /* link nav jadi dropdown */
+  .navlinks{
+    position:absolute;
+    left: 10px;
+    right: 10px;
+    top: calc(100% + 10px);
+
+    display:none;            /* default tutup */
+    flex-direction:column;
+    gap: 10px;
+
+    padding: 12px;
+    border-radius: 18px;
+
+    background: rgba(255,255,255,.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(19,42,19,.10);
+    box-shadow: 0 18px 40px rgba(19,42,19,.18);
+  }
+
+  /* ketika navbar punya class .open (dari script index) */
+  .navbar.open .navlinks{
+    display:flex;
+  }
+
+  .navlinks a{
+    padding: 10px 12px;
+    border-radius: 12px;
+    font-weight: 800;
+    background: rgba(79,119,45,.06);
+  }
+  .navlinks a:active{
+    background: rgba(79,119,45,.12);
+  }
+}
+
+/* ---------- 2) HERO MOBILE: teks lebih kecil + ornamen lebih keliatan ---------- */
+@media (max-width: 768px){
+  .hero{
+    min-height: 92vh; /* biar gak kepanjangan */
+  }
+
+  .hero-content{
+    top: 52%;
+    transform: translate(-50%, -45%);
+    width: min(520px, 92%);
+    padding: 0 6px;
+  }
+
+  .badge{
+    font-size: 12px;
+    padding: 6px 10px;
+    margin-bottom: 8px;
+  }
+
+  .shimmer-text{
+    font-size: 32px;         /* ✅ kecilin */
+    line-height: 1.1;
+  }
+
+  .subtitle{
+    font-size: 13px;         /* ✅ kecilin */
+    max-width: 320px;        /* ✅ bikin gak kepanjangan */
+    margin-top: 10px;
+    opacity: .92;
+  }
+
+  .hero-actions{
+    margin-top: 14px;
+    gap: 10px;
+  }
+
+  .btn{
+    padding: 11px 14px;
+    font-size: 14px;
+  }
+
+  /* ornamen: posisikan ulang biar keliatan & gak ketiban navbar */
+  .orn{
+    width: 56vw;
+    opacity: .30;
+  }
+  .orn-right{
+    top: -6vw;
+    right: -18vw;
+  }
+  .orn-left{
+    bottom: -14vw;
+    left: -22vw;
+  }
+}
+
+/* ---------- 3) SECTION HEAD (Peta UMKM) MOBILE: gak mepet + underline rapih ---------- */
+@media (max-width: 768px){
+  .section{
+    padding: 34px 16px; /* lebih rapih */
+  }
+
+  .section-head{
+    margin-bottom: 14px;
+  }
+
+  .fancy-title{
+    font-size: 30px;         /* ✅ kecilin di mobile */
+    line-height: 1.15;
+  }
+
+  .fancy-title::after{
+    bottom: -8px;            /* ✅ jarak underline */
+    height: 5px;
+    width: 72%;
+  }
+
+  .section-desc{
+    margin-top: 14px;        /* ✅ jarak dari judul */
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
+
+/* ---------- BONUS: map container biar gak sempit di HP ---------- */
+@media (max-width: 768px){
+  .map-layout{ gap: 14px; }
+  #map{ height: 360px; }
+  .map-side{ height: auto; }
+}
+
 
 
