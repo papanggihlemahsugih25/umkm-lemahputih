@@ -1232,41 +1232,23 @@ body{
 .orn{
   position:absolute;
   pointer-events:none;
-
   width: clamp(240px, 42vw, 560px);
-  opacity: .35; /* ✅ FIX (0–1) */
-
-  /* efek desktop */
-  filter: brightness(1.2) contrast(1.05)
-          drop-shadow(0 0 18px rgba(255,255,255,.28));
-  mix-blend-mode: screen;
-
+  opacity: .35;
   transform-origin:center;
-  animation: spinSlow 32s linear infinite;
-
-  /* anti glitch render */
-  backface-visibility:hidden;
-  -webkit-transform: translateZ(0);
+  animation: spinOrn 32s linear infinite;
   will-change: transform;
 }
 
-/* pojok kanan atas */
-.orn-right{
-  top: -18%;
-  right: -10%;
-  transform: rotate(0deg) translateZ(0);
+.orn-right{ top: -18%; right: -10%; }
+.orn-left{ bottom: -18%; left: -10%; }
+
+@keyframes spinOrn{
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
-/* pojok kiri bawah */
-.orn-left{
-  bottom: -18%;
-  left: -10%;
-  transform: rotate(0deg) translateZ(0);
-}
-
-@keyframes spinSlow{
-  from { transform: rotate(0deg) translateZ(0); }
-  to   { transform: rotate(360deg) translateZ(0); }
+@media (max-width: 768px){
+  .orn{ animation-duration: 28s; opacity:.45; }
 }
 
 /* ===== MOBILE FIX ===== */
@@ -1292,5 +1274,6 @@ body{
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 }
+
 
 
