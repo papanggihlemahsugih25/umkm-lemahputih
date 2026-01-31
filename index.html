@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UMKM Desa Lemahputih</title>
+
+  <link rel="stylesheet" href="style.css"/>
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+</head>
+<body>
+
+  <!-- Opening overlay fade -->
+  <div id="introOverlay" aria-hidden="true"></div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="brand">
+      <img src="img/logo.png" alt="Logo Tim" class="brand-logo">
+    </div>
+
+
+    <nav class="navlinks">
+      <a href="#home">Home</a>
+      <a href="#peta">Peta UMKM</a>
+      <a href="#daftar">Daftar UMKM</a>
+      <a href="#tentang">Tentang</a>
+    </nav>
+
+    <a class="btn-call" href="#peta" title="Jelajahi peta">Jelajahi</a>
+  </header>
+
+<!-- HERO / HOME -->
+<section id="home" class="section hero">
+
+  <!-- VIDEO BACKGROUND -->
+  <video class="hero-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+    poster="img/hero.jpg">
+    <source src="img/0130.mp4" type="video/mp4">
+  </video>
+
+  <!-- OVERLAY -->
+  <div class="hero-overlay"></div>
+
+  <!-- ORNAMEN -->
+  <img class="orn orn-left" src="img/ornamen.png" alt="" aria-hidden="true">
+  <img class="orn orn-right" src="img/ornamen.png" alt="" aria-hidden="true">
+
+  <!-- CONTENT -->
+  <div class="hero-content">
+    <p class="badge">Desa Lemahputih</p>
+
+    <h1 class="shimmer-text">
+      WebGIS UMKM<br>
+      Jelajahi UMKM Lokal
+    </h1>
+
+    <p class="subtitle">
+      Temukan oleh-oleh khas Lemah Putih, lihat lokasinya, dan hubungi pemiliknya!
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn primary" href="#peta">Jelajahi Peta</a>
+      <a class="btn ghost" href="#daftar">Lihat Daftar</a>
+    </div>
+  </div>
+</section>
+
+<!-- STORY SLIDER (sebelum peta) -->
+<section id="story" class="section story">
+  <div class="story-head">
+    <h2 class="story-title">Lemahputih, Desa yang Tumbuh Bersama UMKM</h2>
+    <p class="story-desc">
+      Dari potensi lokal yang sederhana, Lemahputih terus bergerak untuk mengangkat
+      produk-produk autentik warganya. WebGIS ini dibuat agar UMKM lebih mudah dikenali,
+      dijangkau, dan terus berkembang.
+    </p>
+    <p class="story-hashtag">#CintaiProdukLokal</p>
+  </div>
+
+  <div class="story-slider" id="storySlider">
+    <img src="img/story/1.jpeg" class="active" alt="Lemahputih 1">
+    <img src="img/story/2.png" alt="Lemahputih 2">
+    <img src="img/story/3.jpeg" alt="Lemahputih 3">
+    <img src="img/story/4.jpeg" alt="Lemahputih 2">
+    <img src="img/story/5.jpeg" alt="Lemahputih 3">
+
+    <button class="story-nav prev" aria-label="Sebelumnya">‹</button>
+    <button class="story-nav next" aria-label="Berikutnya">›</button>
+
+    <div class="story-dots" id="storyDots"></div>
+  </div>
+
+  <a href="#daftar" class="story-cta-btn">
+  Beli produk lokal Lemahputih mu!
+</a>
+
+</section>
+
+
+  <!-- PETA -->
+  <section id="peta" class="section">
+    <div class="section-head head-left">
+      <h2 class="fancy-title">Peta UMKM</h2>
+      <p class="section-desc">
+        Klik marker atau legenda untuk melihat info singkat. Klik <b>Detail</b> untuk halaman lengkap.
+      </p>
+    </div>
+
+    <div class="map-layout">
+      <div id="map"></div>
+
+      <aside class="map-side">
+        <div class="side-card legend-card">
+          <h3>Legenda</h3>
+          <p class="legend-desc">Klik item untuk fokus ke UMKM.</p>
+
+          <!-- wadah list legend -->
+          <div id="legend" class="legend-list"></div>
+        </div>
+
+
+      </aside>
+    </div>
+  </section>
+
+  <!-- DAFTAR -->
+  <section id="daftar" class="section">
+    <div class="section-head right">
+      <h2 class="fancy-title">Daftar UMKM</h2>
+      <p class="section-desc">
+        Lihat informasi lebih lengkap dari UMKM.
+      </p>
+    </div>
+
+    <div id="umkmList" class="umkm-list"></div>
+    <div class="umkm-cta">
+  <h3>UMKM Lemahputih belum terdaftar?</h3>
+  <p>
+    Daftarkan usaha Anda secara <b>gratis</b> agar bisa tampil di WebGIS UMKM
+    dan lebih mudah ditemukan oleh pembeli.
+  </p>
+  <a
+    href="https://forms.gle/7GpcU2LQUC1ro1Z58"
+    target="_blank"
+    class="btn primary"
+  >
+    Daftarkan UMKM Anda
+  </a>
+</div>
+  </section>
+
+   <!-- TENTANG -->
+<section id="tentang" class="section-tentang">
+  <div class="tentang-inner">
+
+    <div class="tentang-logos">
+      <img src="img/logoW.png" alt="Logo KKN">
+      <img src="img/UGMl.png" alt="Logo UGM">
+    </div>
+
+    <p class="tentang-desc">
+      WebGIS UMKM Desa Lemahputih dibuat untuk memudahkan masyarakat mengenal UMKM lokal,
+      melihat lokasi, dan menghubungi pemilik secara langsung.
+    </p>
+
+    <div class="tentang-sosial">
+      <a href="https://www.instagram.com/papanggihlemahsugih/" target="_blank" rel="noopener">
+        <img src="img/icons/instagram.png" alt="Instagram">
+      </a>
+      <a href="https://www.tiktok.com/@papanggihlemahsugih?_r=1&_t=ZS-93Vbd0gcyEH" target="_blank" rel="noopener">
+        <img src="img/icons/tiktok.png" alt="TikTok">
+      </a>
+      <a href="mailto:kknppmpapanggih.ugm25@gmail.com">
+        <img src="img/icons/email.png" alt="Email">
+      </a>
+    </div>
+
+    <div class="tentang-divider"></div>
+    <div class="tentang-footer">© KKN-PPM UGM Papanggih Lemahsugih Sub-Unit Lemahputih 2025</div>
+
+  </div>
+</section>
+
+  <!-- Leaflet -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Data + App -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
